@@ -28,12 +28,12 @@ def get_messages(service, START_DATE, END_DATE):
         msg_details = {'id': m['id']}
         for headers in msg['payload']['headers']:
             if headers['name'] == 'From' and 'YouTube' in headers['value']:
-                for headers in msg['payload']['headers']:
-                    if headers['name'] == 'From':
-                        msg_details['From'] = headers['value']
-                    elif headers['name'] == 'Date':
-                        msg_details['Date'] = headers['value']
-                message_list.append((msg_details))
+                for header in msg['payload']['headers']:
+                    if header['name'] == 'From':
+                        msg_details['From'] = header['value']
+                    elif header['name'] == 'Date':
+                        msg_details['Date'] = header['value']
+                message_list.append(msg_details)
 
     return message_list
 
