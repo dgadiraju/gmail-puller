@@ -1,8 +1,9 @@
-FROM python:3.7
+FROM public.ecr.aws/lambda/python:3.9
 
-WORKDIR /app
+RUN mkdir /gmail-puller
+WORKDIR /gmail-puller
 
 COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 
-CMD ["python", "app.py"]
+ENTRYPOINT ["jupyter", "lab", "--ip", "0.0.0.0", "--allow-root"]

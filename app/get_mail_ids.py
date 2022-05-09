@@ -1,9 +1,11 @@
+import os
 import pickle
 from googleapiclient.discovery import build
 
 
 def get_service():
-    with open('token.pickle', 'rb') as token:
+    app_home = os.environ.get('APP_HOME')
+    with open(f'{app_home}/.credentials/token.pickle', 'rb') as token:
         creds = pickle.load(token)
 
     service = build('gmail', 'v1', credentials=creds)
