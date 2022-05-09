@@ -1,9 +1,9 @@
 FROM public.ecr.aws/lambda/python:3.9
 
-RUN mkdir /gmail-puller
-WORKDIR /gmail-puller
+COPY app ${LAMBDA_TASK_ROOT}/app
+ENV PYTHONPATH=${LAMBDA_TASK_ROOT}/app
 
 COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 
-ENTRYPOINT ["jupyter", "lab", "--ip", "0.0.0.0", "--allow-root"]
+CMD [ "app.lambda_handler" ]

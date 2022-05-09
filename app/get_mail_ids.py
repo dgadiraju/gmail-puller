@@ -1,12 +1,17 @@
 import os
 import pickle
 from googleapiclient.discovery import build
+import boto3
 
 
 def get_service():
     app_home = os.environ.get('APP_HOME')
-    with open(f'{app_home}/.credentials/token.pickle', 'rb') as token:
-        creds = pickle.load(token)
+    sm_client = boto3.client(
+        'secretsmanager',
+        region_name='us-east-1'
+    )
+    secret_token = sm_client.get_secret_value(SecretId='gmail_token')['SecretBinary']
+    creds = pickle.loads(secret_token)
 
     service = build('gmail', 'v1', credentials=creds)
     return service
@@ -27,13 +32,7 @@ def get_messages(service, START_DATE, END_DATE):
 
     for m in messages['messages']:
         msg = users.messages().get(userId='me', id=m['id']).execute()
-        msg_details = {'id': m['id']}
-        for headers in msg['payload']['headers']:
-            if headers['name'] == 'From':
-                msg_details['From'] = headers['value']
-            elif headers['name'] == 'Date':
-                msg_details['Date'] = headers['value']
-        message_list.append(msg_details)
+        message_list.append(msg)
 
     return message_list
 
