@@ -25,13 +25,14 @@ Here are the details about the implementation plan for application like this.
 
 ## Setup Project
 
-Let us go ahead and setup the project.
+Let us go ahead and setup the project. We need to have Python3.9 installed locally on our PC or Mac.
 
 * Use Pycharm and create new project called as `gmail-puller`.
-* Make sure virtual environment is created with name `gp-venv`.
+* Make sure virtual environment is created with name `gp-venv`. You can use `python3.9 -m venv gp-venv`.
 * Install required libraries by running `pip install -r requirements.txt`
 * The repository also contain jupyter notebooks to learn key concepts required for this project. Install **jupyter lab** using `pip install jupyterlab`.
 * Once jupyter lab is installed, you can run `jupyter lab` command to start jupter lab based notebook server.
+* Make sure to create `.credentials` folder under project directory **gmail-puller**.
 * 
 ## GMail API
 
