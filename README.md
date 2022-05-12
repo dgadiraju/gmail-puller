@@ -28,8 +28,10 @@ Here are the details about the implementation plan for application like this.
 Let us go ahead and setup the project.
 
 * Use Pycharm and create new project called as `gmail-puller`.
-* Make sure virtual environment is created with name `gmail-puller-env`.
-* We will install required libraries while exploring GMail API and Mongo DB APIs.
+* Make sure virtual environment is created with name `gp-venv`.
+* Install required libraries by running `pip install -r requirements.txt`
+* The repository also contain jupyter notebooks to learn key concepts required for this project. Install **jupyter lab** using `pip install jupyterlab`.
+* Once jupyter lab is installed, you can run `jupyter lab` command to start jupter lab based notebook server.
 
 ## GMail API
 
