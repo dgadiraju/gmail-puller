@@ -32,7 +32,7 @@ Let us go ahead and setup the project.
 * Install required libraries by running `pip install -r requirements.txt`
 * The repository also contain jupyter notebooks to learn key concepts required for this project. Install **jupyter lab** using `pip install jupyterlab`.
 * Once jupyter lab is installed, you can run `jupyter lab` command to start jupter lab based notebook server.
-
+* 
 ## GMail API
 
 GMail provides an API to interact with GMail Boxes programmatically.
@@ -44,7 +44,7 @@ GMail provides an API to interact with GMail Boxes programmatically.
 * Make sure you are in the right Python Virtual Environment and run the following command to install Google Developer Library.
 ```
 pip install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib
-pip freeze > requirements.txt
+# You can also update requirements.txt
 ```
 * We can use the examples from official documentation for following:
   * List Messages
