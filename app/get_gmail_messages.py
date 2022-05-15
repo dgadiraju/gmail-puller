@@ -18,7 +18,7 @@ def get_creds():
 
 def get_users():
     creds = get_creds()
-    service = build('gmail', 'v1', credentials=creds)
+    service = build('gmail', 'v1', credentials=creds, cache_discovery=False)
     return service.users()
 
 
