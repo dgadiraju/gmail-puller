@@ -34,7 +34,8 @@ def get_job_run_time_range(job_details):
 def save_job_run_details(job_details, job_start_time, message_ids, start_time_epoch, end_time_epoch, file_name):
     dynamodb = boto3.resource('dynamodb')
     message_count = len(message_ids)
-    max_message_id = job_details['job_run_bookmark_details'].get('last_run_max_message_id')
+    if job_details.get('job_run_bookmark_details'):
+        max_message_id = job_details.get('job_run_bookmark_details').get('last_run_max_message_id')
     if len(message_ids) > 0:
         max_message_id = max([message_id['id'] for message_id in message_ids])
     job_run_details_item = {
