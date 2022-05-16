@@ -69,5 +69,5 @@ def get_messages(message_ids):
 
 
 def write_messages_to_s3(messages_df, s3_bucket, s3_prefix):
-    messages_df.to_json(f's3://{s3_bucket}/{s3_prefix}/part-{uuid.uuid1()}.json')
+    messages_df.to_json(f's3://{s3_bucket}/{s3_prefix}/part-{uuid.uuid1()}.json', orient='records', lines=True)
     print(f'Successfully saved messages to s3://{s3_bucket}/{s3_prefix}/part-{uuid.uuid1()}.json')
